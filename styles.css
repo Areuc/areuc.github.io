@@ -1,0 +1,128 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #F6F6F6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(135, 133, 162, 0.2);
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+    overflow-x: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.container:hover {
+    transform: scale(1.02);
+}
+
+h1, h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #8785A2;
+}
+
+h3 {
+    font-size: 20px;
+    color: #8785A2;
+}
+
+input[type="file"] {
+    padding: 10px;
+    border: 1px solid #8785A2;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background-color: #FFE2E2;
+    color: #333;
+}
+
+button {
+    padding: 12px;
+    background-color: #8785A2;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #FFC7C7;
+}
+
+#results {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 14px;
+    color: #333;
+}
+
+.table-container {
+    margin-top: 20px;
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+th, td {
+    padding: 10px 15px;
+    border: 1px solid #DDD;
+    text-align: left;
+    background-color: #FFFFFF;
+    color: #8785A2;
+}
+
+th {
+    background-color: #F6F6F6;
+}
+
+tr:nth-child(even) {
+    background-color: #FFE2E2;
+}
+
+.filter-btn {
+    padding: 10px 15px;
+    margin-right: 10px;
+    border: 1px solid #8785A2;
+    background-color: #FFFFFF;
+    color: #8785A2;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.filter-btn.active {
+    background-color: #8785A2;
+    color: #FFFFFF;
+}
+
+.filter-btn:hover {
+    background-color: #FFC7C7;
+    color: #FFFFFF;
+}
+
+.red-btn {
+    background-color: #FF4136;
+    color: #FFFFFF;
+    border: 1px solid #FF4136;
+}
+
+.red-btn:hover {
+    background-color: #E12D2A;
+    border-color: #E12D2A;
+}

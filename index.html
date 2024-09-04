@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtrado de Datos Excel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <script>
+        // Verifica si el usuario está autenticado
+        if (!sessionStorage.getItem('authenticated')) {
+            window.location.href = 'login.html'; // Redirige al login si no está autenticado
+        }
+    </script>
+    
+    <div id="content" class="container" style="display:none;">
+        <h1>Sube tu archivo de Excel</h1>
+        <input type="file" id="fileUpload" accept=".xlsx, .xls" required>
+        <button id="uploadButton">Subir y Procesar</button>
+
+        <div id="filterButtons" style="display:none; margin-top: 20px;">
+            <h3>Filtrar por Sexo</h3>
+            <button id="filterM" class="filter-btn">Filtrar Masculino (M)</button>
+            <button id="filterF" class="filter-btn">Filtrar Femenino (F)</button>
+            
+            <h3>Filtrar por Rango de Edad</h3>
+            <div id="ageFilterButtons">
+                <button class="filter-btn" id="age-15-19" onclick="filterByAge('15 - 19')">15 - 19</button>
+                <button class="filter-btn" id="age-20-24" onclick="filterByAge('20 - 24')">20 - 24</button>
+                <button class="filter-btn" id="age-25-29" onclick="filterByAge('25 - 29')">25 - 29</button>
+                <button class="filter-btn" id="age-30-34" onclick="filterByAge('30 - 34')">30 - 34</button>
+                <button class="filter-btn" id="age-35-39" onclick="filterByAge('35 - 39')">35 - 39</button>
+                <button class="filter-btn" id="age-40-44" onclick="filterByAge('40 - 44')">40 - 44</button>
+                <button class="filter-btn" id="age-45-49" onclick="filterByAge('45 - 49')">45 - 49</button>
+                <button class="filter-btn" id="age-50-54" onclick="filterByAge('50 - 54')">50 - 54</button>
+                <button class="filter-btn" id="age-55-59" onclick="filterByAge('55 - 59')">55 - 59</button>
+                <button class="filter-btn" id="age-60-64" onclick="filterByAge('60 - 64')">60 - 64</button>
+                <button class="filter-btn" id="age-65-69" onclick="filterByAge('65 - 69')">65 - 69</button>
+                <button class="filter-btn" id="age-70-74" onclick="filterByAge('70 - 74')">70 - 74</button>
+                <button class="filter-btn" id="age-75-79" onclick="filterByAge('75 - 79')">75 - 79</button>
+                <button class="filter-btn" id="age-80ymas" onclick="filterByAge('80 y mas')">80 y más</button>
+            </div>
+
+            <h3>Filtrar por Tipo de Prestación</h3>
+            <div id="serviceTypeButtons">
+                <button class="filter-btn" id="service-CSMP" onclick="filterByServiceType('CSM P')">CSM P</button>
+                <button class="filter-btn" id="service-CSMR" onclick="filterByServiceType('CSM R')">CSM R</button>
+                <button class="filter-btn" id="service-R.TELEFONICOE" onclick="filterByServiceType('R. TELEFONICO E')">R. TELEFONICO E</button>
+                <button class="filter-btn" id="service-R.TELEFONICON/E" onclick="filterByServiceType('R. TELEFONICO N/E')">R. TELEFONICO N/E</button>
+                <button class="filter-btn" id="service-VISITADOMICILIARIA" onclick="filterByServiceType('VISITA DOMICILIARIA')">VISITA DOMICILIARIA</button>
+                <button class="filter-btn" id="service-TALLER" onclick="filterByServiceType('TALLER')">TALLER</button>
+                <button class="filter-btn" id="service-COORDINACIONINTERSECTORIAL" onclick="filterByServiceType('COORDINACION INTERSECTORIAL')">COORDINACION INTERSECTORIAL</button>                
+            </div>
+        </div>
+        
+        <div style="text-align:right; margin-top:20px;">
+            <button id="clearFilter" class="filter-btn red-btn">Eliminar Filtros</button>
+        </div>
+
+        <div id="resultsSection" style="display:none;">
+            <h2>Resultados</h2>
+            <div id="results"></div>
+        </div>
+    </div>
+
+    <script>
+        if (sessionStorage.getItem('authenticated')) {
+            document.getElementById('content').style.display = 'block';
+        } else {
+            window.location.href = 'login.html';
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
